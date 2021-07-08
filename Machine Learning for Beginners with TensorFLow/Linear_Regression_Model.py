@@ -30,8 +30,8 @@ def train(model, x, y, learning_rate):
     model.bias.assign_sub(new_bias * learning_rate)
 
 model = Model()
-epochs = 1000
-learning_rate = 0.5
+epochs = 100
+learning_rate = 0.15
 for epoch in range(epochs):
     y_output = model(x)
     loss = calculate_loss(y, y_output)
@@ -42,5 +42,7 @@ print(model.weight.numpy())
 print(model.bias.numpy())
 new_x = np.linspace(0, 4, 100)
 new_y = model.weight.numpy() * new_x * model.bias.numpy()
-plt.scatter(new_x, new_y)
+
+plt.imshow(plt.scatter(new_x, new_y), interpolation='nearest', cmap='gray')
+
 plt.scatter(x, y)
