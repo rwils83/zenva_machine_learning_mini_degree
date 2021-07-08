@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classification Results</title>
+</head>
+<body>
+<h1> Classification Results</h1>
+<img src="{{ url }}">
+<p>Filename: {{ filename }}</p>
+<table>
+    <thead>
+    <th>Class</th>
+    <th>Probability</th>
+    </thead>
+    <tbody>
+    {% for prediction in predictions %}
+    <tr>
+        <td>{{ prediction[1] }}</td>
+        <td>{{ prediction[2] }}</td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
